@@ -1,0 +1,43 @@
+.site-layout .site-layout-background {
+    background: #fff;
+}
+[data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+}
+
+.row {
+    margin-top: 24px
+}
+
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5vw;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.login-form {
+    max-width: 300px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.ant-col-rtl .login-form-forgot {
+    float: left;
+}
+
+.login-form-button {
+    width: 100%;
+}

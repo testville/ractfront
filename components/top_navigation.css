@@ -1,0 +1,9 @@
+.main-header {
+    background: white;
+    box-shadow: 0 4px 12px rgba(138, 166, 195, .45);
+    transition: box-shadow .45s cubic-bezier(.215, .61, .355, 1);
+}
+
+.main-menu {
+    background: white;
+}
