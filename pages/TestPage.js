@@ -13,6 +13,7 @@ import SortAscendingOutlined from "@ant-design/icons/lib/icons/SortAscendingOutl
 import DownOutlined from "@ant-design/icons/lib/icons/DownOutlined";
 import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import TestGrid from "../components/Testgrid"
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 export default function TestPage(props) {
     const { Content } = Layout;
@@ -47,11 +48,12 @@ export default function TestPage(props) {
 
     return (
         <Card title={"Тесты"} extra={
-
+            <Link to="/edittest/0">
             <Button type="primary">
-                <PlusOutlined />Добавить тест
+                <PlusOutlined />Добавить Тест
                     </Button>
-
+            </Link>
+            
         }>
             <div
                 style={{
@@ -63,7 +65,7 @@ export default function TestPage(props) {
             >
                 <Input.Search
                     allowClear
-                    placeholder="Пися"
+                    placeholder="Поиск"
                     onChange={() => {
                     }}
                     size="large"
@@ -71,25 +73,8 @@ export default function TestPage(props) {
                         marginRight: 8
                     }}
                 />
-
-                <Dropdown overlay={menu} trigger={['click']}>
-                    <Button size="large">
-                        <SortAscendingOutlined /> {currentSort}{' '}
-                        <DownOutlined />
-                    </Button>
-                </Dropdown>
-                <div style={{ marginRight: 8 }} />
-                <Dropdown overlay={menu} trigger={['click']}>
-                    <Button size="large">
-                        <SortAscendingOutlined /> {currentSort}{' '}
-                        <DownOutlined />
-                    </Button>
-                </Dropdown>
             </div>
-
-            <>
-                <TestGrid />
-            </>
+            <TestGrid />
         </Card>
     )
 };

@@ -13,6 +13,8 @@ import SortAscendingOutlined from "@ant-design/icons/lib/icons/SortAscendingOutl
 import DownOutlined from "@ant-design/icons/lib/icons/DownOutlined";
 import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import TestGrid from "../components/Testgrid"
+import TestEditForm from "../components/TestEditForm"
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 export default function EditTestPage(props) {
     const { Content } = Layout;
@@ -45,19 +47,15 @@ export default function EditTestPage(props) {
         }
     };
 
+    console.log(props.match.params.id);
+
     return (
+        
             <PageHeader
       ghost={false}
       onBack={() => window.history.back()}
-      title="Title"
-      subTitle="This is a subtitle"
-      extra={[
-        <Button key="3">Operation</Button>,
-        <Button key="2">Operation</Button>,
-        <Button key="1" type="primary">
-          Primary
-        </Button>,
-      ]}
+      title="Изменение теста"
+      onBack={() => props.history.push('/tests')}
     >
             <div
                 style={{
@@ -67,34 +65,9 @@ export default function EditTestPage(props) {
                     display: 'flex'
                 }}
             >
-                <Input.Search
-                    allowClear
-                    placeholder="Пися"
-                    onChange={() => {
-                    }}
-                    size="large"
-                    style={{
-                        marginRight: 8
-                    }}
-                />
-
-                <Dropdown overlay={menu} trigger={['click']}>
-                    <Button size="large">
-                        <SortAscendingOutlined /> {currentSort}{' '}
-                        <DownOutlined />
-                    </Button>
-                </Dropdown>
-                <div style={{ marginRight: 8 }} />
-                <Dropdown overlay={menu} trigger={['click']}>
-                    <Button size="large">
-                        <SortAscendingOutlined /> {currentSort}{' '}
-                        <DownOutlined />
-                    </Button>
-                </Dropdown>
             </div>
-            
             <>
-                <TestGrid />
+                <TestEditForm />
             </>
         </PageHeader>
     )

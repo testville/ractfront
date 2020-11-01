@@ -13,6 +13,7 @@ import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import { Table, Tag, Space } from 'antd';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import UserGrid from "../components/UsersGrid"
+import AchievmentsGrid from "../components/AchievmentsGrid"
 export default (props) => {
     const columns = [
         {
@@ -27,21 +28,10 @@ export default (props) => {
             key: 'address'
         },
         {
-            title: 'Наставники',
-            dataIndex: 'teachers',
-            key: 'teachers'
-        },
-        {
             title: 'Возраст',
             dataIndex: 'age',
             key: 'age',
             sorter: (a, b) => a.age - b.age,
-        },
-        {
-            title: 'Тесты',
-            dataIndex: 'tests',
-            key: 'tests',
-            sorter: (a, b) => a.tests - b.tests,
         },
         
         {
@@ -72,10 +62,10 @@ export default (props) => {
             render: (text, record) => (
                 <Space size="middle">
                     <Link to={"/edittest/" + record.key}>
-                    <Button>Изменить</Button>
+                    <Button>Принять</Button>
                     </Link>
                     <Space style={{color : "red"}}>
-                        <Button danger onClick={()=>{}}>Удалить</Button>
+                        <Button danger onClick={()=>{}}>Отказать</Button>
                     </Space>
                 </Space>
             ),
@@ -97,11 +87,9 @@ export default (props) => {
         setFilteredList([
             {
                 key: '1',
-                name: 'Лев',
+                name: 'Лев!!!',
                 age: 32,
                 address: 'Ландау',
-                tests : 3,
-                teachers: 2,
                 tags: ['талант', 'математик'],
             },
             {
@@ -109,8 +97,6 @@ export default (props) => {
                 name: 'Семен',
                 age: 42,
                 address: 'Иванов',
-                tests : 7,
-                teachers: 1,
                 tags: ['молодежь'],
             },
             {
@@ -118,8 +104,6 @@ export default (props) => {
                 name: 'Андрей',
                 age: 32,
                 address: 'Моргулис',
-                tests : 1,
-                teachers: 4,
                 tags: ['талант', 'спортсмен'],
             },
         ])
@@ -146,12 +130,7 @@ export default (props) => {
     
 
     return (
-        <Card title={"Пользователи" } extra={
-            <Button type="primary">
-                <PlusOutlined />Добавить пользователя
-                    </Button>
-
-        }>
+        <Card title={"Заявки на регистрацию" } >
             <div
                 style={{
                     marginLeft: 8,
@@ -172,7 +151,7 @@ export default (props) => {
                 />
             </div>
 
-            <UserGrid />
+            <AchievmentsGrid />
         </Card>
     )
 };
